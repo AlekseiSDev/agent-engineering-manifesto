@@ -10,9 +10,9 @@ This document defines the mandatory workflow for AI Agents working on this proje
 - **Key Technologies:** [Stack details, e.g., Next.js, Python, PostgreSQL]
 
 ## 🌟 Core Principles
-1.  **Design Before Code**: No feature implementation starts without a System Design document.
-2.  **Plan Before Action**: Every design must be translated into a step-by-step Implementation Plan.
-3.  **TDD as Definition of Done**: A step in the plan is only complete when its corresponding tests pass.
+1.  **Design Before Code**: Do not start feature implementation without a System Design document, unless explicitly asked by the user to skip it.
+2.  **Plan Before Action**: Designs should be translated into a step-by-step Implementation Plan.
+3.  **TDD as Definition of Done**: A step in the plan is complete when its corresponding tests pass.
 
 ---
 
@@ -21,12 +21,14 @@ Before writing any functional code, create a Design Doc.
 - **Size**: 150-300 lines (300+ for core architecture).
 - **Inspiration**: Google Design Docs.
 - **Mandatory Sections**: Context & Goals, Proposed Design, Alternative Considered, Cross-cutting Concerns.
+- **Review**: The agent must pause and ask for the user's review and approval of the System Design document before proceeding to Phase 2.
 
 ## 📝 Phase 2: Implementation Plan (docs/implementation_plan_*.md)
 Break down the Design Doc into actionable technical steps.
 - **TDD Focused**: Every step must define which tests will be written.
 - **Granularity**: Each step should be small enough to be verified independently.
 - **State Tracking**: Use `[ ]` for pending, `[x]` for completed.
+- **Review**: Optionally, ask the user if they want to review the Implementation Plan before starting Phase 3.
 
 ## 🧪 Phase 3: Step-by-Step TDD Implementation
 For each step in the Implementation Plan:
@@ -64,4 +66,5 @@ Before implementing, agents must:
 ## 🤖 Agent Instructions
 - If a user asks for a feature, first check if a Design Doc exists.
 - If not, propose creating `docs/system_design_<feature_name>.md`.
-- Never skip the Implementation Plan.
+- Do not skip the Implementation Plan unless explicitly instructed by the user.
+- **Git Flow:** Each significant step of the Implementation Plan should be isolated in its own commit. Push to the remote repository only when requested by the user, unless the user explicitly asks to push after every commit.
