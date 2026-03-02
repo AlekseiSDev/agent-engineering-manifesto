@@ -1,8 +1,11 @@
 # System Design: [Feature Name]
 
+## Metadata
 **Author(s):** [Agent/Human Name]
+**Reviewer(s):** [Agent/Human Name]
+**Date Created:** [YYYY-MM-DD]
+**Date Updated:** [YYYY-MM-DD]
 **Status:** Draft | In Review | Approved
-**Date:** [YYYY-MM-DD]
 
 ---
 

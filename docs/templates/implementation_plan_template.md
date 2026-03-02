@@ -1,7 +1,12 @@
 # Implementation Plan: [Feature Name]
 
+## Metadata
+**Author(s):** [Agent/Human Name]
+**Reviewer(s):** [Agent/Human Name]
+**Date Created:** [YYYY-MM-DD]
+**Date Updated:** [YYYY-MM-DD]
+**Status:** Draft | In Progress | Completed
 **Linked Design Doc:** [Link to Design Doc]
-**Status:** In Progress
 **Branch:** [feature-branch-name]
 
 ---
