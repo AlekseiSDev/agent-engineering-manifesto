@@ -1,0 +1,12 @@
+{
+  "name": "telegram-agent-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node bot/webhook.ts",
+    "test": "node --test",
+    "lint": "echo 'lint placeholder'",
+    "typecheck": "echo 'typecheck placeholder'"
+  }
+}
