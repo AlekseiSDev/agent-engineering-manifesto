@@ -22,6 +22,7 @@ Use this checklist after a subagent configures a fixture repository using the ma
 - [ ] No placeholder factual docs were created without real content.
 - [ ] `architecture` / `data-topology` docs appear only if the fixture actually needs them.
 - [ ] Commands and paths were customized instead of left generic.
+- [ ] Bootstrap-only artifacts such as `AGENTS_template.md` or unused `docs/templates/*` were not left behind in the configured repo.
 
 ## 4. Instruction Quality
 

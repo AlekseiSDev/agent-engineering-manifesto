@@ -105,6 +105,9 @@ Do not create all of them just because the template exists. Create the smallest 
 
 ## Included Templates
 
+These are bootstrap materials, not mandatory long-lived repo contents.
+Instantiate what you need, then remove leftover template files that no longer help the target repository.
+
 - `docs/templates/system_design_template.md`
 - `docs/templates/implementation_template.md`
 - `docs/templates/investigation_template.md`
@@ -140,7 +143,8 @@ Initial fixtures:
 4. Copy the templates from `docs/templates/`.
 5. Replace placeholders, repo-specific commands, and project context.
 6. Instantiate `docs/architecture.md` and `docs/data-topology.md` in the target repository only if those factual maps are actually useful there.
-7. Keep the documentation set small; add files only when they reduce repeated ambiguity.
+7. Delete leftover bootstrap artifacts that are no longer useful after setup, especially `AGENTS_template.md` and unused files under `docs/templates/`.
+8. Keep the documentation set small; add files only when they reduce repeated ambiguity.
 
 ## This Repository's Implementation
 

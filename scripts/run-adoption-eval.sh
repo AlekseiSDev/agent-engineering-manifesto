@@ -104,6 +104,8 @@ Your task:
 - create only the smallest useful set of docs;
 - replace placeholders with repo-specific facts;
 - keep routing explicit if supporting docs are created;
+- treat \`AGENTS_template.md\` and files under \`docs/templates/\` as bootstrap materials rather than mandatory long-lived repo files;
+- do not leave unused bootstrap/template artifacts in the configured repository;
 - avoid cargo-culting docs that do not help this repo.
 
 Fixture-specific scenario:
