@@ -112,6 +112,26 @@ Do not create all of them just because the template exists. Create the smallest 
 - `docs/templates/architecture_template.md`
 - `docs/templates/data_topology_template.md`
 
+## Adoption Testing
+
+The most useful test for this project is actual attempted use.
+
+This repository now includes a small adoption-test harness:
+
+- `tests/fixtures/`
+  - fake repositories used as adoption targets
+- `tests/evals/adoption_checklist.md`
+  - a human-first rubric for evaluating the result
+- `scripts/run-adoption-eval.sh`
+  - prepares a workspace, prompt, and run artifacts for a chosen fixture
+
+Initial fixtures:
+
+- `minimal-service`
+  - a tiny TypeScript HTTP service
+- `telegram-agent-bridge`
+  - a repository for building an integration between AI coding agents and Telegram
+
 ## Adoption Into a New Repository
 
 1. Copy `AGENTS_template.md` into the target repository as `AGENTS.md`.
