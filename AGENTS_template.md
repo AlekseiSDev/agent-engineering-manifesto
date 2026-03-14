@@ -4,6 +4,12 @@ This file is a sanitized example of how the manifesto can be adapted in a real r
 For this repository, `AGENTS.md` is authoritative.
 Use this file as a copy-and-edit starting point in another repository.
 
+Bootstrap rule:
+
+- copy this file into the target repository as the resident agent file and adapt it;
+- do not keep `AGENTS_template.md` in the target repository unless the team intentionally wants to maintain local bootstrap assets;
+- do not keep unused files from `docs/templates/` after they have served their setup purpose.
+
 ## Project Context
 
 - **Project:** Documentation-first agent-enablement repository
@@ -52,6 +58,7 @@ Use this file as a copy-and-edit starting point in another repository.
 - Remove organization-specific names, internal branch policies, and private operational details.
 - Keep `AGENTS.md` short; move domain detail into smaller docs.
 - Update `README.md`, `AGENTS.md`, and `docs/index.md` together when terminology changes.
+- Treat template files as bootstrap-only by default: instantiate what is useful, then delete the leftovers.
 
 ## Verification
 

@@ -52,3 +52,4 @@ Use it when:
 - Prefer small factual docs over one giant knowledge base.
 - Add a new doc when repeated mistakes show that an invariant is currently too implicit.
 - If the repo also ships an `AGENTS_template.md`, mark it clearly as a template and keep `AGENTS.md` authoritative.
+- Treat template files as bootstrap material by default: instantiate useful docs, then remove leftover template-only files unless the repo intentionally keeps local scaffolding.

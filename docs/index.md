@@ -72,4 +72,5 @@ Create these per task when needed:
 - Prefer small factual docs over placeholder root docs.
 - Do not let templates redefine canonical repo terminology.
 - Mark examples as non-authoritative and keep them sanitized.
+- Treat `AGENTS_template.md` and `docs/templates/*` as bootstrap assets for target repositories, not as files that must remain after setup.
 - Create harnesses when agents repeat mistakes: a rule, a script, a template fix, or a better source-of-truth doc.
