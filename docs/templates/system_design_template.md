@@ -1,57 +1,71 @@
 # System Design: [Feature Name]
 
-## Metadata
+## Meta
 **Author(s):** [Agent/Human Name]
 **Reviewer(s):** [Agent/Human Name]
 **Date Created:** [YYYY-MM-DD]
 **Date Updated:** [YYYY-MM-DD]
 **Status:** Draft | In Review | Approved
+**Related Links:** [Issue / Investigation / PR / Dashboard]
 
----
+## Context
 
-## 1. Context & Goals (Problem Statement)
-*Describe the problem we are solving and why it's important.*
+Коротко опишите:
 
-### 1.1 Goals (Success Criteria)
+- что меняется;
+- почему это важно;
+- какие ограничения уже известны;
+- что уже подтверждено фактами, а не предположениями.
+
+## Goals
+
 - [ ] Goal 1
 - [ ] Goal 2
 
-### 1.2 Non-Goals
-- What this design is NOT aiming to solve.
+## Non-Goals
 
----
+- Что сознательно не решаем этим изменением.
 
-## 2. Proposed Design
-*The core of the document. Explain the high-level architecture.*
+## Success Criteria
 
-### 2.1 Architecture Overview
-*Diagrams or descriptions of how components interact.*
+- Наблюдаемые outcomes, по которым будет ясно, что решение сработало.
 
-### 2.2 Detailed Design
-*Deep dive into specific modules, data structures, and APIs.*
+## Proposed Design
 
-### 2.3 User Experience (if applicable)
-*How will the user interact with this feature?*
+### Architecture Overview
 
----
+- Основная идея решения.
+- Какие модули, рантаймы или контракты участвуют.
+- Где проходят ключевые границы.
 
-## 3. Alternatives Considered
-*Why this approach? What other ways did we think of and why were they rejected?*
+### Key Decisions
 
----
+| Decision | Why | Tradeoff |
+| --- | --- | --- |
+| `[decision]` | `[reason]` | `[cost / compromise]` |
 
-## 4. Cross-cutting Concerns
-- **Security**: How is data protected?
-- **Observability**: Metrics, logging, tracing.
-- **Performance**: Latency, throughput expectations.
-- **Scalability**: How does this handle growth?
+### Data / Contracts / APIs
 
----
+- Заполняйте только если релевантно.
+- Какие новые или измененные контракты появляются.
+- Какие инварианты должны остаться проверяемыми.
 
-## 5. Potential Risks & Mitigation
-*What could go wrong?*
+### Rollout / Migration / Observability
 
----
+- Заполняйте только если релевантно.
 
-## 6. Infrastructure & Tooling
-*New dependencies, cloud resources, or internal tools required.*
+## Alternatives Considered
+
+| Option | Why not chosen |
+| --- | --- |
+| `[alternative]` | `[reason]` |
+
+## Risks and Open Questions
+
+- Какие риски остаются.
+- Что еще нужно подтвердить до или во время реализации.
+
+## Status
+
+- Что требуется для перехода к implementation doc.
+- Какие ревью или проверки еще нужны.

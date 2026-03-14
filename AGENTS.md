@@ -1,70 +1,72 @@
-# Agent Engineering Manifesto: AI-First Workflow
+# Agent Engineering Manifesto: Repository Instructions
 
-This document defines the mandatory workflow for AI Agents working on this project. These instructions take precedence over general instructions.
+## Project Context
 
-## 📋 Project Context
-*(Agents: when copying this template, replace this section with the specific project overview, architecture, and tech stack of your target repository).*
+- **Project:** Agent Engineering Manifesto
+- **Architecture:** docs-first starter-kit repository
+- **Purpose:** publish a reusable operating model for coding agents plus a small set of starter docs and templates
+- **Key Technologies:** Markdown, Git, Bash, ripgrep
+- **Main Entry Points:** `README.md`, `AGENTS.md`, `AGENTS_template.md`, `docs/index.md`, `docs/templates/`, `scripts/check-docs.sh`
+- **Primary Verification Commands:** `./scripts/check-docs.sh`, `git diff --check`
 
-- **Project:** [Project Name]
-- **Architecture:** [Brief description of the architecture]
-- **Key Technologies:** [Stack details, e.g., Next.js, Python, PostgreSQL]
+## Documentation Routing
 
-## 🌟 Core Principles
-1.  **Design Before Code**: Do not start feature implementation without a System Design document, unless explicitly asked by the user to skip it.
-2.  **Plan Before Action**: Designs should be translated into a step-by-step Implementation Plan.
-3.  **TDD as Definition of Done**: A step in the plan is complete when its corresponding tests pass.
+- Start with `README.md` for public framing and adoption guidance.
+- Use `AGENTS.md` as the operative instruction set for this repository.
+- Use `docs/index.md` to route inside the docs tree.
+- Treat `AGENTS_template.md` as a sanitized, non-authoritative example/template.
+- Treat `docs/templates/*` and `docs/agent_rules/*` as reusable starter artifacts, not as source-of-truth docs for this repository.
 
----
+Do not copy this file blindly into another repository. Use `AGENTS_template.md` as the starting point for adoption.
 
-## 🛠 Phase 1: System Design (docs/system_design_*.md)
-Before writing any functional code, create a Design Doc.
-- **Size**: 150-300 lines (300+ for core architecture).
-- **Inspiration**: Google Design Docs.
-- **Mandatory Sections**: Context & Goals, Proposed Design, Alternative Considered, Cross-cutting Concerns.
-- **Review**: The agent must pause and ask for the user's review and approval of the System Design document before proceeding to Phase 2.
+## Canonical Model
 
-## 📝 Phase 2: Implementation Plan (docs/implementation_plan_*.md)
-Break down the Design Doc into actionable technical steps.
-- **TDD Focused**: Every step must define which tests will be written.
-- **Granularity**: Each step should be small enough to be verified independently.
-- **State Tracking**: Use `[ ]` for pending, `[x]` for completed.
-- **Review**: Optionally, ask the user if they want to review the Implementation Plan before starting Phase 3.
+- Default delivery path: 3-step pipeline
+  1. concise system design
+  2. implementation tracking
+  3. TDD-first execution when logic changes
+- Investigation is a separate entry path when the problem or solution space is unclear.
+- Harness engineering is a cross-cutting practice: when agents repeat a mistake, add a guardrail instead of only patching the immediate task.
+- Avoid the old hybrid label in published docs unless the user explicitly wants that historical wording.
 
-## 🧪 Phase 3: Step-by-Step TDD Implementation
-For each step in the Implementation Plan:
-1.  **Red**: Write a failing test.
-2.  **Green**: Write the minimum code to pass the test.
-3.  **Refactor**: Clean up the code while keeping tests green.
-4.  **Validate**: Verify against the Implementation Plan.
+## Core Principles
 
----
+1. **Discovery Before Edits**: read the smallest relevant source before changing docs or templates.
+2. **One Canonical Term per Concept**: if naming changes, update all canonical docs in the same change.
+3. **Public Examples Must Stay Sanitized**: no company names, internal commands, leaked architecture, or private practices in published examples.
+4. **Keep Facts Factual and Templates Reusable**: repo docs describe this repository; templates describe starter structure for target repositories.
+5. **Harness the Mistake**: if a confusion repeats, add a script, rule, template fix, or better source-of-truth doc.
+6. **Keep Docs Lean**: avoid duplicating the same rationale across `README.md`, `AGENTS.md`, `docs/index.md`, and `docs/agentic_engineering_guide.md`.
 
-## ⚠️ Fragility & Risk Metrics
+## Workflow Selection
 
-### Failure Propagation Rules
-To reduce maintenance failures, follow these "Fragility" checks before proposing a plan:
-- **Rule of Locality**: If a change requires you to touch more than 3 files, the design is becoming "Fragile." Propose a refactor to decouple instead of just fixing the bug.
-- **Hidden Dependencies**: List any modules that rely on `globalState` (or project equivalent). If you touch core state, you must run the full test suite.
+- **New workflow model / new doc class / naming change**:
+  create a concise system design doc before broad edits.
+- **Multi-file cleanup or structural docs refactor**:
+  maintain an implementation doc when the change spans `README.md`, `AGENTS.md`, `docs/`, and templates.
+- **Unclear root cause or repeated agent confusion**:
+  start with an investigation doc, then decide whether the fix is wording, structure, or harness.
 
-### Verification Protocol
-For "Fragile" decisions, the agent MUST:
-1. Generate a "Blast Radius Map" (list all files that import the modified module).
-2. Write a failing integration test *before* making the fix.
-3. Verify that zero unrelated tests fail.
+## Repo-Specific Change Rules
 
----
+- If you change canonical workflow terminology, update `README.md`, `AGENTS.md`, `docs/index.md`, and `docs/agentic_engineering_guide.md` together.
+- If you change document naming conventions, update templates and all references in the same change.
+- If you change `AGENTS_template.md`, verify that it stays public and sanitized.
+- If you change starter factual docs, update the matching files in `docs/templates/` instead of introducing placeholder root docs in this repository.
+- Prefer adding or improving a harness when the same documentation mistake could recur.
 
-## 🧠 Problem Reframing Protocol
-Before implementing, agents must:
-1. Extract the core transformation being requested.
-2. Identify implicit state that should be explicit.
-3. Propose 2-3 equivalent representations.
-4. Select the one where invariants are checkable.
+## Verification and Definition of Done
 
----
+A documentation change is done only when:
 
-## 🤖 Agent Instructions
-- If a user asks for a feature, first check if a Design Doc exists.
-- If not, propose creating `docs/system_design_<feature_name>.md`.
-- Do not skip the Implementation Plan unless explicitly instructed by the user.
-- **Git Flow:** Each significant step of the Implementation Plan should be isolated in its own commit. Push to the remote repository only when requested by the user, unless the user explicitly asks to push after every commit.
+- changed files agree on terminology and file naming;
+- public-facing examples contain no private or project-external data;
+- repo-specific docs are factual and templates remain reusable;
+- `./scripts/check-docs.sh` passes;
+- `git diff --check` passes.
+
+## Git Discipline
+
+- keep commits scoped to meaningful documentation or harness changes;
+- rewrite local or unreviewed history when sanitizing leaked public content;
+- do not push until the sanitized diff has been reviewed.
