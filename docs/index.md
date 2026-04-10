@@ -16,12 +16,10 @@ Use it when:
   start with `README.md`.
 - Editing this repository as an agent:
   read `AGENTS.md`, then the smallest relevant doc below.
-- Understanding the rationale behind the model:
-  use `docs/agentic_engineering_guide.md`.
 - Updating reusable starter artifacts:
   use `docs/templates/` and `docs/agent_rules/`.
 - Looking for a filled example/template:
-  use `AGENTS_template.md`.
+  use `AGENTS_template.md` (general-purpose) or `CLAUDE_template.md` (Claude Code).
 
 Do not load everything by default. Pick the smallest relevant document and expand only when blocked.
 
@@ -32,9 +30,9 @@ Do not load everything by default. Pick the smallest relevant document and expan
 - `AGENTS.md`
   - operative instructions for this repository
 - `AGENTS_template.md`
-  - sanitized example/template for adopters
-- `docs/agentic_engineering_guide.md`
-  - human-facing rationale for the operating model
+  - sanitized example/template for adopters (general-purpose)
+- `CLAUDE_template.md`
+  - Claude Code-specific template with planning workflow
 - `docs/agent_rules/*.md`
   - reusable starter rules for target repositories
 - `docs/templates/*.md`
@@ -44,6 +42,10 @@ Do not load everything by default. Pick the smallest relevant document and expan
 
 Create these per task when needed:
 
+- `docs/ui-ux.md`
+  - primary source of truth for what we build from user perspective; system design is derived from this file
+- `docs/decisions.md`
+  - architectural and design decision log; append during implementation, read before planning
 - `docs/<feature>_system_design.md`
   - for new features, refactors, high-blast-radius changes, or ambiguous solution spaces
 - `docs/<feature>_implementation.md`
@@ -53,6 +55,10 @@ Create these per task when needed:
 
 ## Templates
 
+- `docs/templates/ui_ux_template.md`
+  - use as the starting structure for a product/UX specification
+- `docs/templates/decisions_template.md`
+  - use to bootstrap a decision log in a new repository
 - `docs/templates/system_design_template.md`
   - use before implementation for architecture and acceptance criteria
 - `docs/templates/implementation_template.md`
@@ -72,5 +78,5 @@ Create these per task when needed:
 - Prefer small factual docs over placeholder root docs.
 - Do not let templates redefine canonical repo terminology.
 - Mark examples as non-authoritative and keep them sanitized.
-- Treat `AGENTS_template.md` and `docs/templates/*` as bootstrap assets for target repositories, not as files that must remain after setup.
+- Treat `AGENTS_template.md`, `CLAUDE_template.md`, and `docs/templates/*` as bootstrap assets for target repositories, not as files that must remain after setup.
 - Create harnesses when agents repeat mistakes: a rule, a script, a template fix, or a better source-of-truth doc.

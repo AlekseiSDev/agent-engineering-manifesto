@@ -1,0 +1,66 @@
+# Claude Code Instructions
+
+## Project Context
+
+* **Project:** [Project name]
+* **Architecture:** [Brief description]
+* **Key Technologies:** [Stack]
+* **Build Command:** [e.g. `npm run build`]
+* **Test Command:** [e.g. `npm test`]
+* **Lint Command:** [e.g. `npm run lint`]
+
+## Documentation Routing
+
+| Document | Purpose | When to read |
+|----------|---------|--------------|
+| `docs/ui-ux.md` | What we build from user perspective. Primary source of truth. | Before system design, before planning any phase |
+| `docs/system_design.md` | Technical design: phases, entities, API contracts, architecture | Before implementation planning |
+| `docs/decisions.md` | Log of architectural/design decisions | Before proposing alternatives to existing patterns |
+| `docs/data_schema.md` | Data model reference | When working with DB, models, or migrations |
+| `docs/testing_strategy.md` | Testing approach and conventions | When writing or modifying tests |
+| `docs/index.md` | Full docs routing | When unsure where to look |
+
+## Planning Phase (before writing code)
+
+When asked to implement a phase or a feature:
+
+1. Read the relevant phase section from `docs/system_design.md`
+2. Read `docs/ui-ux.md` for affected user flows
+3. Read `docs/decisions.md` to avoid contradicting prior decisions
+4. Explore current code in affected directories (`ls`, `grep`, read key files)
+5. Run existing tests to confirm baseline: `[TEST_COMMAND]`
+6. Propose an implementation plan that includes test cases for each step
+7. Wait for human approval before writing code
+
+If the problem or root cause is unclear, start with investigation:
+gather evidence, form hypotheses, verify — before proposing a plan.
+
+## During Implementation
+
+* TDD when changing business logic: Red → Green → Refactor
+* Run tests after each meaningful change
+* Verify each step against the plan before moving to the next
+
+## Decision Log
+
+When we make an architectural or design decision during implementation,
+append it to `docs/decisions.md` in format:
+```
+- **[YYYY-MM-DD] Decision title**: What we decided. Why.
+```
+Do not duplicate existing entries. Read the file before appending.
+
+## Code Style and Principles
+
+* [Add your project-specific style rules here]
+* Fallback: follow the Google style guide for the project's primary language
+* Prefer low coupling and high cohesion between modules
+* No dead code — remove unused imports, functions, variables
+* Write clear error messages; avoid swallowing exceptions silently
+
+## Harness Rules
+
+When the same mistake happens twice:
+* If it's a code pattern → add a lint rule or test
+* If it's a workflow confusion → update this file or the relevant doc
+* If it's a missing convention → add to `docs/decisions.md`
