@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#
+# Sample pre-commit hook (bootstrap artifact; opt-in).
+#
+# Enable it per clone:
+#   git config core.hooksPath .githooks
+#
+# It does nothing until you opt in — git uses .git/hooks by default.
+#
+# Purpose: run the repository's single verify gate before each commit, so the
+# check fires regardless of whether the agent remembered to run it. Replace or
+# extend the command below with your project's verify command:
+#   [verify command] = [typecheck] && [lint] && [unit tests]
+
+set -euo pipefail
+
+repo_root="$(git rev-parse --show-toplevel)"
+cd "$repo_root"
+
+# Verify gate for this repository (docs-first): doc guardrails + whitespace.
+./scripts/check-docs.sh
+
+# Adopters: add your project verify command here, e.g.
+#   [package manager] verify   # typecheck + lint + unit tests

@@ -42,6 +42,12 @@ gather evidence, form hypotheses, verify — before proposing a plan.
 * Run tests after each meaningful change
 * Verify each step against the plan before moving to the next
 
+## Verify Gate (pre-PR)
+
+Define one must-pass command — `[verify command]` = `[typecheck] && [lint] && [unit tests]` — and
+run it before proposing a PR. Wire it into CI and, optionally, a pre-commit hook so it fires even
+if the agent forgets. A green verify gate is part of completion, not an afterthought.
+
 ## Decision Log
 
 When we make an architectural or design decision during implementation,

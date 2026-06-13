@@ -48,3 +48,13 @@
   files (two design/impl records + three templates). Translated them as part of the uplift.
   Reason: the English-only guardrail and "sanitized public" principle apply to every shipped
   artifact, and Russian prose in a public starter-kit is a real wart.
+- **[2026-06-13] Verify gate is a single named, stack-agnostic slot**: templates use `[verify
+  command]` (`[typecheck] && [lint] && [unit tests]`); this repo's gate is `./scripts/check-docs.sh`.
+  Reason: name the gate once instead of hardcoding a package manager across docs.
+- **[2026-06-13] `.claude/settings.json` is real and functional for this repo**: it pre-approves the
+  read-mostly commands an agent runs here and denies destructive ones, rather than shipping dead
+  placeholder config. Reason: the operator chose a real `.claude/`; making it functional avoids
+  shipping config that governs this repo but does nothing.
+- **[2026-06-13] Config layers documented as a standalone `docs/config_layers.md`**: team/module/
+  personal layers + override policy + the "single shared AGENTS.md" anti-pattern. Reason: it is
+  cross-cutting harness guidance, discoverable via the routing table, not a section buried in a template.

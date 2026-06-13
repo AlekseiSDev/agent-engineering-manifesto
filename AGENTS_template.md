@@ -63,8 +63,16 @@ Bootstrap rule:
 - Update `README.md`, `AGENTS.md`, and `docs/index.md` together when terminology changes.
 - Treat template files as bootstrap-only by default: instantiate what is useful, then delete the leftovers.
 
+## Enforcement
+
+- Define a single **verify gate** `[verify command]` that must pass before a PR — typically
+  `[typecheck] && [lint] && [unit tests]`. Name it once; don't hardcode a package manager across docs.
+- Wire the verify gate into CI and, optionally, a pre-commit hook and an agent Stop hook, so it
+  fires regardless of whether the agent remembered to run it (mechanisms, not prompts).
+- See `docs/config_layers.md` for how team / module / personal layers compose.
+
 ## Verification
 
-- Run the repository's documented verification commands.
+- Run the repository's verify gate (`[verify command]`) and any documented checks.
 - Search for stale terminology or leaked example data before publishing.
 - Record known gaps explicitly if a check cannot be run.

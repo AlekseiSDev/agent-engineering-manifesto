@@ -63,12 +63,16 @@ Do not copy this file blindly into another repository. Use `AGENTS_template.md` 
 
 ## Verification and Definition of Done
 
+The **verify gate** for this repository is `./scripts/check-docs.sh` (it also runs
+`git diff --check`). It must pass before any commit is proposed. An opt-in pre-commit hook in
+`.githooks/pre-commit` can run it automatically (see `.claude/README.md`).
+
 A documentation change is done only when:
 
 * changed files agree on terminology and file naming;
 * public-facing examples contain no private or project-external data;
 * repo-specific docs are factual and templates remain reusable;
-* `./scripts/check-docs.sh` passes;
+* the verify gate (`./scripts/check-docs.sh`) passes;
 * `git diff --check` passes.
 
 ## Git Discipline

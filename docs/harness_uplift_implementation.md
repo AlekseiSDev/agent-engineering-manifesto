@@ -84,8 +84,8 @@ and "smallest useful set."
 | --- | --- | --- | --- |
 | `Pre-flight` | `completed` | Created this tracker + `docs/decisions.md`. | — |
 | `P0` | `completed` | Fixed 3-step→4-step (2 files); existence guard + `3-step pipeline` ban in `check-docs.sh`; dropped phantom `agentic_engineering_guide.md` ref in `check-docs.sh` + `run-adoption-eval.sh`; gitignored operator working docs. Verified: pass + both fail-paths + adoption smoke-run clean. | — |
-| `P1` | `completed` | Genres + routing table in `docs/index.md`; new `docs/anti-patterns.md` (AP-NN, 0 entries); distillation step + handoff plug-point in implementation template; wired genres/anti-patterns into AGENTS/README/AGENTS_template/CLAUDE_template + generic `docs_index_template`. Plus English-consistency pass (5 files). check-docs + git diff --check clean. | Start P2. |
-| `P2` | `pending` | — | Verify gate, settings, hooks, config layers. |
+| `P1` | `completed` | Genres + routing table in `docs/index.md`; new `docs/anti-patterns.md` (AP-NN, 0 entries); distillation step + handoff plug-point in implementation template; wired genres/anti-patterns into AGENTS/README/AGENTS_template/CLAUDE_template + generic `docs_index_template`. Plus English-consistency pass (5 files). check-docs + git diff --check clean. | — |
+| `P2` | `completed` | Verify gate named (`[verify command]` slot in templates; `check-docs.sh` named as this repo's gate in AGENTS.md); real `.claude/settings.json` (permissions) + `.claude/README.md`; opt-in `.githooks/pre-commit` (frontier/partial); `docs/config_layers.md` (layers + override policy + anti-pattern), registered in published_docs + routing table. settings.json valid JSON; check-docs clean. | Start P3. |
 | `P3` | `pending` | — | Skills, sub-agents, commands, shim model. |
 | `P4` | `pending` | — | Adoption-status tracker + deferred notes. |
 

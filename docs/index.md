@@ -43,6 +43,8 @@ in prose what types, tests, or contracts already express.
 | Debugging / unclear root cause | `docs/templates/investigation_template.md` |
 | Writing or changing code conventions | `docs/agent_rules/*.md` |
 | Recording a recurring mistake | `docs/anti-patterns.md` |
+| Understanding the team/module/personal config layers | `docs/config_layers.md` |
+| Adjusting agent permissions or enforcement | `.claude/settings.json`, `.claude/README.md` |
 | Adapting this kit into another repo | `AGENTS_template.md` (or `CLAUDE_template.md` for Claude Code) |
 
 ## Where NOT to look

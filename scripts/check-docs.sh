@@ -17,6 +17,7 @@ published_docs=(
   "AGENTS_template.md"
   "CLAUDE_template.md"
   "docs/index.md"
+  "docs/config_layers.md"
   "tests/evals/adoption_checklist.md"
 )
 
