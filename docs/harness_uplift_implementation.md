@@ -1,11 +1,11 @@
-# Implementation Tracking: Harness Uplift to JayFlow Form (P0–P4)
+# Implementation Tracking: Harness Form Uplift (P0–P4)
 
 ## Meta
 **Author(s):** Coding agent (uplift session)
 **Reviewer(s):** Repository operator
 **Date Created:** 2026-06-13
 **Date Updated:** 2026-06-13
-**Status:** In Progress
+**Status:** Completed
 
 ## Links
 
@@ -13,7 +13,7 @@
 - Audit: `harness_sota_audit.md` (operator working doc; non-published)
 - Reference harness: sibling repo (form only, product specifics stripped)
 - Decisions log: `docs/decisions.md`
-- Branch: `harness-uplift-jayflow-form`
+- Branch: `harness-form-uplift`
 
 ## Core Transformation
 
@@ -106,6 +106,10 @@ and "smallest useful set."
   `docs/adoption_test_system_design.md`, `docs/adoption_test_implementation.md`). The English-only
   guardrail + DoD apply to every shipped artifact, so all five were translated to English. The
   operator brief assumed existing files were already English; this corrects that assumption.
+- **Sanitization (final pass):** the reference harness's private codename leaked into this tracker's
+  title and branch reference. Scrubbed to generic wording and the branch renamed to
+  `harness-form-uplift`. The only remaining occurrence of the banned name is inside
+  `scripts/check-docs.sh`'s banned-pattern list, which must contain it to guard against it.
 
 ## Risks / Follow-Ups
 
