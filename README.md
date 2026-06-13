@@ -142,6 +142,7 @@ Instantiate what you need, then remove leftover template files that no longer he
 * `docs/templates/docs_index_template.md`
 * `docs/templates/architecture_template.md`
 * `docs/templates/data_topology_template.md`
+* `docs/templates/adoption_status_template.md`
 
 ## Creating a UI/UX Specification
 

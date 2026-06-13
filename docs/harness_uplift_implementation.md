@@ -86,8 +86,8 @@ and "smallest useful set."
 | `P0` | `completed` | Fixed 3-step→4-step (2 files); existence guard + `3-step pipeline` ban in `check-docs.sh`; dropped phantom `agentic_engineering_guide.md` ref in `check-docs.sh` + `run-adoption-eval.sh`; gitignored operator working docs. Verified: pass + both fail-paths + adoption smoke-run clean. | — |
 | `P1` | `completed` | Genres + routing table in `docs/index.md`; new `docs/anti-patterns.md` (AP-NN, 0 entries); distillation step + handoff plug-point in implementation template; wired genres/anti-patterns into AGENTS/README/AGENTS_template/CLAUDE_template + generic `docs_index_template`. Plus English-consistency pass (5 files). check-docs + git diff --check clean. | — |
 | `P2` | `completed` | Verify gate named (`[verify command]` slot in templates; `check-docs.sh` named as this repo's gate in AGENTS.md); real `.claude/settings.json` (permissions) + `.claude/README.md`; opt-in `.githooks/pre-commit` (frontier/partial); `docs/config_layers.md` (layers + override policy + anti-pattern), registered in published_docs + routing table. settings.json valid JSON; check-docs clean. | — |
-| `P3` | `completed` | Real skills (`create-spec`, `check-docs`, `docs-review`); read-only sub-agents (`explore`, `code-reviewer`, `spec-writer`→write-scoped to `docs/`; generator-evaluator plug-point in `code-reviewer`); `parallel-review` command; `CLAUDE_template.md` rewritten as a thin `@AGENTS.md` shim; README adoption steps + kit list updated; routing rows for skills/agents/commands. check-docs + git diff --check clean. | Start P4. |
-| `P4` | `pending` | — | Adoption-status tracker + deferred notes. |
+| `P3` | `completed` | Real skills (`create-spec`, `check-docs`, `docs-review`); read-only sub-agents (`explore`, `code-reviewer`, `spec-writer`→write-scoped to `docs/`; generator-evaluator plug-point in `code-reviewer`); `parallel-review` command; `CLAUDE_template.md` rewritten as a thin `@AGENTS.md` shim; README adoption steps + kit list updated; routing rows for skills/agents/commands. check-docs + git diff --check clean. | — |
+| `P4` | `completed` | `docs/templates/adoption_status_template.md` + filled `docs/adoption_status.md` (legend ✓/partial/doc-only/deferred/✗), registered in published_docs + routing. Deferred 7.1 "Future: outcome metrics" note + new "Harness Mechanics" check items in adoption_checklist. All three deferred plug-points (7.1/7.2/7.3) in place, none implemented. check-docs + existence guard + git diff --check clean. | Final verification. |
 
 ## Verification
 
@@ -96,8 +96,8 @@ and "smallest useful set."
 | `./scripts/check-docs.sh` | linter | `pass (P0)` | Passes; fails on `3-step pipeline` regression and on missing published doc. |
 | `rg "3-step"` (canonical docs) | grep | `pass (P0)` | Empty across canonical docs. |
 | `./scripts/run-adoption-eval.sh minimal-service` | smoke | `pass (P0)` | Produces `prompt.md` with no phantom reference. |
-| `.claude/settings.json` JSON parse | manual | `pending` | Post-P2. |
-| `git diff --check` | linter | `pending` | After each phase. |
+| `.claude/settings.json` JSON parse | manual | `pass (P2)` | Valid JSON. |
+| `git diff --check` | linter | `pass` | Clean after every phase. |
 
 ## Deviations
 

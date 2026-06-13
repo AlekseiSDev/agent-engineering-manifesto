@@ -18,6 +18,7 @@ published_docs=(
   "CLAUDE_template.md"
   "docs/index.md"
   "docs/config_layers.md"
+  "docs/adoption_status.md"
   "tests/evals/adoption_checklist.md"
 )
 

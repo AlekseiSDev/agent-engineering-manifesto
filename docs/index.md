@@ -48,6 +48,7 @@ in prose what types, tests, or contracts already express.
 | Delegating a broad search or an independent review | `.claude/agents/` (read-only sub-agents) |
 | Using a packaged practice (skill) | `.claude/skills/` |
 | Running a slash command | `.claude/commands/` |
+| Checking which harness practices are adopted | `docs/adoption_status.md` |
 | Adapting this kit into another repo | `AGENTS_template.md` (or `CLAUDE_template.md` for Claude Code) |
 
 ## Where NOT to look
@@ -89,6 +90,7 @@ Create these per task when needed (one fact, one genre — see above):
 - `docs/templates/docs_index_template.md` — routing layer for a new repository
 - `docs/templates/architecture_template.md` — architecture map
 - `docs/templates/data_topology_template.md` — storage ownership map
+- `docs/templates/adoption_status_template.md` — map of which harness practices a repo has adopted
 
 ## When to update this file
 

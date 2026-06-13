@@ -66,3 +66,9 @@
 - **[2026-06-13] Sub-agents are read-only by default; only `spec-writer` may write, scoped to `docs/`**:
   `explore` and `code-reviewer` are read-only context firewalls; `spec-writer` has Write/Edit limited
   to `docs/`. Reason: a sub-agent should reduce blast radius, not expand it.
+- **[2026-06-13] Adoption-status tracker reconceived for manifesto practices**: the tier table groups
+  Foundations / single-agent discipline / mechanical enforcement / agent infrastructure / advanced,
+  with a `✓ / partial / doc-only / deferred / ✗` legend — not the reference harness's tiers verbatim.
+  Reason: the kit's own practices differ; an honest self-describing map matters more than copying tiers.
+  The three deferred items (outcome-eval, generator-evaluator, long-horizon) each have a real
+  plug-point in the repo, not just an intention.

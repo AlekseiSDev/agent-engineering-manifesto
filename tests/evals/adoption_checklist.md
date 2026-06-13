@@ -37,6 +37,16 @@ Use this checklist after a subagent configures a fixture repository using the ma
 - [ ] It is obvious how a future agent should start work in the fixture repo.
 - [ ] A human reviewer would keep most of the generated files instead of rewriting them.
 
+## 6. Harness Mechanics
+
+Apply only if the adopted setup uses the kit's enforcement and agent-infra practices.
+
+- [ ] A single verify gate (`[verify command]`) exists and is real, not a placeholder.
+- [ ] An anti-pattern log appears only if a mistake actually recurred — not cargo-culted with invented entries.
+- [ ] Documentation genres are respected: no single fact duplicated across decisions, conventions, and specs.
+- [ ] If permissions are configured, the deny-list blocks destructive operations and the allow-list isn't blanket.
+- [ ] If sub-agents exist, they are read-only by default (write scope is explicit and narrow).
+
 ## Scoring Hint
 
 Use a rough 0-2 score per section:
@@ -47,3 +57,11 @@ Use a rough 0-2 score per section:
 
 Total score is less important than the failure pattern.
 The most useful output of this checklist is a short note on what felt off and what repeated.
+
+## Future: outcome metrics (deferred plug-point)
+
+This checklist measures whether an agent *configured* the harness well. The next horizon is
+measuring whether the harness *works*: e.g. fewer repeated mistakes after a mechanical rule is
+added, or a recurring `AP-NN` that stops recurring once it's harnessed. This is where the
+manifesto's eval culture can go further than harnesses that track adoption but not effect. Not
+implemented — this is a 2-3 line marker for a future iteration, not a metric.
