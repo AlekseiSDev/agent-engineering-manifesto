@@ -2,54 +2,55 @@
 
 ## Purpose
 
-This file is the entrypoint into the repository documentation.
+This file is the **routing layer**: the shortest path from "what you're doing" to the smallest
+authoritative document. Load the one row you need — do not read the whole tree.
 
-Use it when:
+## Documentation Genres (single-writer-per-fact)
 
-- you are new to the repo;
-- you need to find the right doc quickly;
-- you want the shortest path from task type to the right source of truth.
+One fact lives in exactly one genre. Don't duplicate a fact across genres, and don't restate in
+prose what types, tests, or contracts already express.
 
-## Recommended Reading Order
+| Genre | Answers | Where it lives |
+| --- | --- | --- |
+| WHY — decisions | why the system is the way it is | `docs/decisions.md` (heavy decisions may graduate to `docs/adr/NNNN-*.md`) |
+| WHAT — product / feature | what we build, from the user's perspective | `docs/ui-ux.md`, then `docs/<feature>_system_design.md` |
+| HOW — conventions | how code must always do X | `docs/agent_rules/*.md` |
+| Mistakes — anti-patterns | what keeps going wrong, and the durable fix | `docs/anti-patterns.md` |
 
-1. `README.md`, if it contains useful public framing
-2. `AGENTS.md`
-3. `docs/architecture.md`
-4. `docs/data-topology.md`
-5. relevant `docs/agent_rules/*.md`
-6. relevant feature docs in `docs/`
-7. relevant templates in `docs/templates/`
+## What you're doing → what to read
 
-## Core Docs
+| What you're doing | Read |
+| --- | --- |
+| Onboarding to the repo | `README.md`, then `AGENTS.md` |
+| Finding the canonical doc for a change | this file |
+| Understanding system topology | `docs/architecture.md` |
+| Working with storage / data | `docs/data-topology.md` |
+| Proposing an alternative to an existing pattern | `docs/decisions.md` (read before you propose) |
+| Designing a non-trivial change | `docs/<feature>_system_design.md` |
+| Tracking execution | `docs/<feature>_implementation.md` |
+| Debugging / unclear root cause | `docs/<topic>_investigation.md` |
+| Writing or changing code conventions | `docs/agent_rules/*.md` |
+| Recording a recurring mistake | `docs/anti-patterns.md` |
+| `[your repo's common task]` | `[the smallest doc that answers it]` |
 
-- `docs/architecture.md`
-  - repo topology, runtime boundaries, dependency directions, architecture risks
-- `docs/data-topology.md`
-  - runtime-to-storage map, source-of-truth ownership, connection entrypoints, local inspection paths
+## Where NOT to look
 
-## Agent Rules
+- Don't mine archived `docs/<feature>_system_design.md` for current conventions — durable rules
+  are distilled into `docs/agent_rules/` and `docs/decisions.md` on completion.
+- Don't treat any `*_template.md` as authoritative; templates are bootstrap material.
+- `[name any doc that is commonly mis-used as a source of truth, and where to look instead]`
 
-- `docs/agent_rules/testing.md`
-  - test surfaces, risk-based validation, runtime expectations
-- `docs/agent_rules/frontend.md`
-  - frontend placement, reuse rules, browser validation
-- `docs/agent_rules/backend.md`
-  - backend boundary rules, contract and integration validation
+## When to update this file
 
-## Templates
-
-- `docs/templates/system_design_template.md`
-- `docs/templates/implementation_template.md`
-- `docs/templates/investigation_template.md`
-- `docs/templates/docs_index_template.md`
-- `docs/templates/architecture_template.md`
-- `docs/templates/data_topology_template.md`
+- Add a new doc genre, rule, template, skill, sub-agent, or command → add **one row** to the
+  relevant table above. Nothing else.
+- Keep this file a router, not a knowledge base: link to the smallest authoritative doc; don't
+  inline its content here.
 
 ## Rule of Use
 
-- Do not load all docs by default.
-- Start with the most relevant doc.
+- Do not load all docs by default. Start with the most relevant doc and expand only when blocked.
 - Prefer small factual docs over one giant knowledge base.
-- Add a new doc when repeated mistakes show that an invariant is currently too implicit.
-- If the repo also ships an `AGENTS_template.md`, mark it clearly as a template and keep `AGENTS.md` authoritative.
-- Treat template files as bootstrap material by default: instantiate useful docs, then remove leftover template-only files unless the repo intentionally keeps local scaffolding.
+- Add a new doc only when repeated mistakes show an invariant is currently too implicit.
+- If the repo ships an `AGENTS_template.md`, mark it clearly as a template and keep `AGENTS.md`
+  authoritative.

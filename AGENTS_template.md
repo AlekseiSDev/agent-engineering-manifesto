@@ -43,6 +43,7 @@ Bootstrap rule:
 3. Prefer one canonical filename and term per concept.
 4. Treat verification as part of completion.
 5. Sanitize public examples before committing or publishing.
+6. One fact, one genre: WHY in a decisions log, WHAT in product/design docs, HOW in convention docs, recurring mistakes in an anti-patterns log. Don't duplicate a fact across docs.
 
 ## Workflow Selection
 
@@ -51,7 +52,8 @@ Bootstrap rule:
 - **Bug / unclear root cause**:
   create an investigation doc first, then decide on the fix.
 - **Repeated agent error**:
-  update the harness with a rule, doc, template, or verification script.
+  update the harness — prefer a mechanical rule (lint/test/check); otherwise a structural doc
+  fix or an `AP-NN` entry in the anti-patterns log (added the second time, not the first).
 
 ## Repo Hygiene
 

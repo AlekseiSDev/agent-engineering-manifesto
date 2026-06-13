@@ -17,7 +17,8 @@ Around that pipeline sit two supporting practices:
 
 The documentation topology is intentionally small:
 
-* `docs/index.md` as the entrypoint into the docs tree;
+* `docs/index.md` as the routing layer into the docs tree ("what you're doing → what to read");
+* documentation genres with one writer per fact — WHY in `docs/decisions.md`, WHAT in the UI/UX spec and system designs, HOW in `docs/agent_rules/`, recurring mistakes in `docs/anti-patterns.md`;
 * explicit links between `README.md`, `AGENTS.md`, `CLAUDE_template.md`, `AGENTS_template.md`, and the docs kit;
 * a small set of focused docs instead of one overloaded instruction file.
 
@@ -79,9 +80,10 @@ This prevents premature solutions to misunderstood problems.
 When the same class of mistake keeps repeating, add a guardrail so the next session has a better default path.
 A harness can be:
 
-* a lint rule or test that catches the pattern automatically;
+* a lint rule or test that catches the pattern automatically (preferred for an architectural invariant);
 * a documentation fix — clearer routing, better naming, explicit constraints;
 * a `docs/decisions.md` entry that records the convention so it isn't relitigated;
+* an `AP-NN` entry in `docs/anti-patterns.md` when the same mistake recurs (added the second time, not the first);
 * a verification script when the risk is drift rather than discovery.
 
 The guiding principle: patch the system, not just the symptom.
@@ -115,6 +117,7 @@ The following docs work well in most non-trivial repositories:
 
 * `docs/ui-ux.md`
 * `docs/decisions.md`
+* `docs/anti-patterns.md`
 * `docs/index.md`
 * `docs/architecture.md`
 * `docs/data-topology.md`

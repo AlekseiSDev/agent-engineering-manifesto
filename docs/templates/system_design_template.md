@@ -10,12 +10,12 @@
 
 ## Context
 
-Коротко опишите:
+Briefly describe:
 
-- что меняется;
-- почему это важно;
-- какие ограничения уже известны;
-- что уже подтверждено фактами, а не предположениями.
+- what changes;
+- why it matters;
+- which constraints are already known;
+- what is confirmed by facts rather than assumptions.
 
 ## Goals
 
@@ -24,21 +24,24 @@
 
 ## Non-Goals
 
-- Что сознательно не решаем этим изменением.
+- What this change deliberately does not solve.
 
 ## Success Criteria
 
-- Наблюдаемые outcomes, по которым будет ясно, что решение сработало.
+- Observable outcomes that show the solution worked.
 
 ## Proposed Design
 
 ### Architecture Overview
 
-- Основная идея решения.
-- Какие модули, рантаймы или контракты участвуют.
-- Где проходят ключевые границы.
+- The core idea of the solution.
+- Which modules, runtimes, or contracts are involved.
+- Where the key boundaries run.
 
 ### Key Decisions
+
+This table is the **distillation source**: when the implementation completes, each durable
+decision here graduates to a one-liner in `docs/decisions.md` (see the implementation template).
 
 | Decision | Why | Tradeoff |
 | --- | --- | --- |
@@ -46,15 +49,17 @@
 
 ### Data / Contracts / APIs
 
-- Заполняйте только если релевантно.
-- Какие новые или измененные контракты появляются.
-- Какие инварианты должны остаться проверяемыми.
+- Fill in only if relevant.
+- Which new or changed contracts appear.
+- Which invariants must stay verifiable.
 
 ### Rollout / Migration / Observability
 
-- Заполняйте только если релевантно.
+- Fill in only if relevant.
 
 ## Alternatives Considered
+
+Keep this — it is what stops a future agent from re-proposing a rejected option.
 
 | Option | Why not chosen |
 | --- | --- |
@@ -62,10 +67,10 @@
 
 ## Risks and Open Questions
 
-- Какие риски остаются.
-- Что еще нужно подтвердить до или во время реализации.
+- Which risks remain.
+- What still needs confirming before or during implementation.
 
 ## Status
 
-- Что требуется для перехода к implementation doc.
-- Какие ревью или проверки еще нужны.
+- What is required to move to the implementation doc.
+- Which reviews or checks are still needed.
