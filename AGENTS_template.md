@@ -28,11 +28,12 @@ Bootstrap rule:
 
 ## Canonical Model
 
-- Default path: 3-step pipeline
-  1. system design
-  2. implementation tracking
-  3. TDD execution for logic changes
-- Investigation comes first when the problem is not understood.
+- Default delivery path: 4-step pipeline (0–3)
+  0. UI/UX specification — what we build from the user's perspective (usually human-authored)
+  1. system design — derived from the UI/UX spec
+  2. implementation tracking — with a lightweight research step before each plan
+  3. TDD-first execution when business logic changes
+- Investigation is a separate entry path when the problem or solution space is unclear.
 - Harness engineering is cross-cutting and should result in a durable guardrail.
 
 ## Core Principles

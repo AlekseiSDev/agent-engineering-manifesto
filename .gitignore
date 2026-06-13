@@ -1,2 +1,7 @@
 tests/runs/*
 !tests/runs/.gitkeep
+
+# Operator working docs for the harness uplift (non-published, not English-canonical).
+# Kept local; excluded from the public repo. Remove locally once the uplift is done.
+manifesto_harness_uplift_brief.md
+harness_sota_audit.md

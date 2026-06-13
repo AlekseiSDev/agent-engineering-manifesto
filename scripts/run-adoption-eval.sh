@@ -93,7 +93,6 @@ Use these files from the manifesto repository as your main reference material:
 - README.md
 - AGENTS_template.md
 - docs/index.md
-- docs/agentic_engineering_guide.md
 - docs/agent_rules/
 - docs/templates/
 

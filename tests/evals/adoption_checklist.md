@@ -5,7 +5,7 @@ Use this checklist after a subagent configures a fixture repository using the ma
 ## 1. Core Outcome
 
 - [ ] The repo now has an `AGENTS.md` or equivalent resident agent file.
-- [ ] The setup clearly follows the manifesto's 3-step pipeline terminology.
+- [ ] The setup clearly follows the manifesto's 4-step pipeline (0–3) terminology.
 - [ ] Investigation is treated as a separate path, not as a late pipeline stage.
 - [ ] Harness engineering appears as supporting infrastructure, not only as prose.
 
