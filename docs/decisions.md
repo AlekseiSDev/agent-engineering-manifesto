@@ -58,3 +58,11 @@
 - **[2026-06-13] Config layers documented as a standalone `docs/config_layers.md`**: team/module/
   personal layers + override policy + the "single shared AGENTS.md" anti-pattern. Reason: it is
   cross-cutting harness guidance, discoverable via the routing table, not a section buried in a template.
+- **[2026-06-13] `CLAUDE_template.md` is a thin shim that imports `@AGENTS.md`**: removed the generic
+  content it duplicated (project context, routing, decision-log format, code style, harness rules);
+  kept only Claude-specific planning/implementation workflow. Reason: AGENTS.md is the source of
+  truth; duplicating it in CLAUDE.md violates one-fact-one-home. Adopters now create both AGENTS.md
+  and a thin CLAUDE.md, not CLAUDE.md "instead of" AGENTS.md.
+- **[2026-06-13] Sub-agents are read-only by default; only `spec-writer` may write, scoped to `docs/`**:
+  `explore` and `code-reviewer` are read-only context firewalls; `spec-writer` has Write/Edit limited
+  to `docs/`. Reason: a sub-agent should reduce blast radius, not expand it.

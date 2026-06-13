@@ -45,6 +45,9 @@ in prose what types, tests, or contracts already express.
 | Recording a recurring mistake | `docs/anti-patterns.md` |
 | Understanding the team/module/personal config layers | `docs/config_layers.md` |
 | Adjusting agent permissions or enforcement | `.claude/settings.json`, `.claude/README.md` |
+| Delegating a broad search or an independent review | `.claude/agents/` (read-only sub-agents) |
+| Using a packaged practice (skill) | `.claude/skills/` |
+| Running a slash command | `.claude/commands/` |
 | Adapting this kit into another repo | `AGENTS_template.md` (or `CLAUDE_template.md` for Claude Code) |
 
 ## Where NOT to look

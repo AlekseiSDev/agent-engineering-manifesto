@@ -99,17 +99,19 @@ Core files:
 * `AGENTS.md`
   + the operative instruction set for this repository
 * `AGENTS_template.md`
-  + the public starting template to adapt into another repository (general-purpose)
+  + the public starting template to adapt into another repository (the source of truth, general-purpose)
 * `CLAUDE_template.md`
-  + starting template for Claude Code with integrated planning workflow
+  + a thin Claude Code shim that imports `@AGENTS.md` and adds only Claude-specific workflow
 * `docs/index.md`
-  + routing into the docs tree
+  + the routing layer into the docs tree
 * `docs/agent_rules/`
   + focused starter rules for high-signal domains
 * `docs/templates/`
   + reusable templates for design, implementation, investigation, UI/UX, decisions, and repo docs
+* `.claude/`
+  + Claude Code harness: permissions (`settings.json`), sub-agents, skills, and commands (see `.claude/README.md`)
 * `scripts/check-docs.sh`
-  + a small verification harness for published docs in this repository
+  + the verify gate for published docs in this repository
 
 ## Suggested Repository Docs For Adoption
 
@@ -228,20 +230,23 @@ Initial fixtures:
 
 ## Adoption Into a New Repository
 
-1. Copy `AGENTS_template.md` into the target repository as `AGENTS.md`.
-2. For Claude Code, copy `CLAUDE_template.md` as `CLAUDE.md` instead.
-   For other platforms, rename `AGENTS_template.md` to the expected filename (e.g. `GEMINI.md`).
+1. Copy `AGENTS_template.md` into the target repository as `AGENTS.md` — the source of truth.
+2. For Claude Code, also copy `CLAUDE_template.md` as `CLAUDE.md` — a thin shim that imports
+   `@AGENTS.md` and adds only Claude-specific workflow. Other agents read `AGENTS.md` natively
+   (or rename it to the expected filename, e.g. `GEMINI.md`).
 3. Copy `docs/index.md` and the relevant docs from `docs/agent_rules/`.
 4. Copy the templates from `docs/templates/`.
-5. Replace placeholders, repo-specific commands, and project context.
-6. Instantiate `docs/architecture.md` and `docs/data-topology.md` in the target repository only if those factual maps are actually useful there.
-7. Delete leftover bootstrap artifacts that are no longer useful after setup, especially `AGENTS_template.md` and unused files under `docs/templates/`.
-8. Keep the documentation set small; add files only when they reduce repeated ambiguity.
+5. Optionally copy `.claude/` (permissions, sub-agents, skills, commands) and adapt its placeholders.
+6. Replace placeholders, repo-specific commands, and project context — including a single
+   `[verify command]` (the verify gate).
+7. Instantiate `docs/architecture.md` and `docs/data-topology.md` in the target repository only if those factual maps are actually useful there.
+8. Delete leftover bootstrap artifacts that are no longer useful after setup, especially `AGENTS_template.md` and unused files under `docs/templates/`.
+9. Keep the documentation set small; add files only when they reduce repeated ambiguity.
 
 ## This Repository's Implementation
 
 `AGENTS.md` is intentionally project-specific and should not be copied blindly.
 Use it as a reference implementation for how the manifesto is customized in a real repository.
 
-`AGENTS_template.md` is the public example/template for adopters (general-purpose).
-`CLAUDE_template.md` is the Claude Code-specific template with integrated planning workflow.
+`AGENTS_template.md` is the public example/template for adopters (general-purpose, the source of truth).
+`CLAUDE_template.md` is a thin Claude Code shim that imports `@AGENTS.md` and adds only Claude-specific workflow.

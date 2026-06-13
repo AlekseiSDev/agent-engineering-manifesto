@@ -1,78 +1,35 @@
-# Claude Code Instructions
+# Claude Code Instructions (CLAUDE.md)
 
-## Project Context
+> **Shim model.** `AGENTS.md` is the source of truth — an open standard most coding agents read
+> natively. This file is a thin Claude Code layer: it imports `AGENTS.md` and adds only what is
+> specific to Claude Code. Keep durable rules (project context, routing, principles, the verify
+> gate, harness rules) in `AGENTS.md`, so one fact has one home. See `docs/config_layers.md`.
 
-* **Project:** [Project name]
-* **Architecture:** [Brief description]
-* **Key Technologies:** [Stack]
-* **Build Command:** [e.g. `npm run build`]
-* **Test Command:** [e.g. `npm test`]
-* **Lint Command:** [e.g. `npm run lint`]
+@AGENTS.md
 
-## Documentation Routing
+## Planning Phase (Claude Code `/plan`)
 
-| Document | Purpose | When to read |
-|----------|---------|--------------|
-| `docs/ui-ux.md` | What we build from user perspective. Primary source of truth. | Before system design, before planning any phase |
-| `docs/system_design.md` | Technical design: phases, entities, API contracts, architecture | Before implementation planning |
-| `docs/decisions.md` | Log of architectural/design decisions (WHY) | Before proposing alternatives to existing patterns |
-| `docs/anti-patterns.md` | Recurring mistakes (`AP-NN`) and their durable fixes | When a mistake recurs; before repeating a known-hard task |
-| `docs/data_schema.md` | Data model reference | When working with DB, models, or migrations |
-| `docs/testing_strategy.md` | Testing approach and conventions | When writing or modifying tests |
-| `docs/index.md` | Full docs routing | When unsure where to look |
+When asked to implement a phase or feature:
 
-## Planning Phase (before writing code)
+1. Read the relevant section of `docs/<feature>_system_design.md`.
+2. Read `docs/ui-ux.md` for affected user flows.
+3. Read `docs/decisions.md` and `docs/anti-patterns.md` — don't contradict a prior decision or
+   repeat a known mistake.
+4. Explore current code in the affected directories.
+5. Run the verify gate to confirm a green baseline: `[verify command]`.
+6. Propose a plan with test cases per step; wait for human approval before writing code.
 
-When asked to implement a phase or a feature:
+If the root cause is unclear, start with investigation (evidence → hypotheses → verify) first.
 
-1. Read the relevant phase section from `docs/system_design.md`
-2. Read `docs/ui-ux.md` for affected user flows
-3. Read `docs/decisions.md` to avoid contradicting prior decisions
-4. Explore current code in affected directories (`ls`, `grep`, read key files)
-5. Run existing tests to confirm baseline: `[TEST_COMMAND]`
-6. Propose an implementation plan that includes test cases for each step
-7. Wait for human approval before writing code
+## During Implementation (Claude Code)
 
-If the problem or root cause is unclear, start with investigation:
-gather evidence, form hypotheses, verify — before proposing a plan.
+- TDD when changing business logic: Red → Green → Refactor.
+- Run the verify gate after each meaningful change.
+- Verify each step against the plan before moving to the next.
+- Append decisions to `docs/decisions.md` as you make them; distill durable WHY/HOW on completion
+  (see `docs/templates/implementation_template.md`).
 
-## During Implementation
+## Nested modules
 
-* TDD when changing business logic: Red → Green → Refactor
-* Run tests after each meaningful change
-* Verify each step against the plan before moving to the next
-
-## Verify Gate (pre-PR)
-
-Define one must-pass command — `[verify command]` = `[typecheck] && [lint] && [unit tests]` — and
-run it before proposing a PR. Wire it into CI and, optionally, a pre-commit hook so it fires even
-if the agent forgets. A green verify gate is part of completion, not an afterthought.
-
-## Decision Log
-
-When we make an architectural or design decision during implementation,
-append it to `docs/decisions.md` in format:
-```
-- **[YYYY-MM-DD] Decision title**: What we decided. Why.
-```
-Do not duplicate existing entries. Read the file before appending.
-
-When an implementation doc reaches Completed, distill its durable decisions into
-`docs/decisions.md` and any durable conventions into `docs/agent_rules/`, so the archived
-design doc is not mistaken for a source of truth.
-
-## Code Style and Principles
-
-* [Add your project-specific style rules here]
-* Fallback: follow the Google style guide for the project's primary language
-* Prefer low coupling and high cohesion between modules
-* No dead code — remove unused imports, functions, variables
-* Write clear error messages; avoid swallowing exceptions silently
-
-## Harness Rules
-
-When the same mistake happens a second time, add the strongest durable fix:
-* code pattern / architectural invariant → a mechanical rule (lint rule, test, or check in the verify gate)
-* workflow confusion → fix the routing or wording in the relevant doc
-* missing convention → add it to `docs/agent_rules/`
-* a recurring mistake worth recording → an `AP-NN` entry in `docs/anti-patterns.md`
+A subdirectory can carry its own `<subdir>/CLAUDE.md` that imports the module's `@AGENTS.md`
+(the module layer). See `docs/config_layers.md`.
