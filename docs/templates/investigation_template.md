@@ -8,80 +8,83 @@
 **Related Links:** [issue / doc / dashboard / PR]
 
 ## Goal
-Коротко: что исследуем, почему это важно, в каком контексте это происходит, какой результат считаем полезным.
+Briefly: what we are investigating, why it matters, in what context it happens, and what result we
+consider useful.
 
 ## Problem Statement
 
-- Что именно наблюдаем.
-- Где это проявляется.
-- Почему это считается проблемой или источником неопределенности.
-- Что уже известно наверняка.
+- What exactly we observe.
+- Where it shows up.
+- Why it is considered a problem or a source of uncertainty.
+- What is already known for certain.
 
 ## Scope
 
-- In scope: что входит в текущее исследование.
-- Out of scope: что сознательно не исследуем сейчас.
-- Constraints: доступы, время, среда, стоимость, чувствительность данных, зависимость от внешних команд.
+- In scope: what this investigation covers.
+- Out of scope: what we deliberately do not investigate now.
+- Constraints: access, time, environment, cost, data sensitivity, dependency on external teams.
 
 ## Success Criteria
 
-- Какие вопросы должны получить однозначный ответ.
-- Какие артефакты должны появиться в конце: finding, decision memo, fix plan, dashboard, test, repro, runbook.
+- Which questions must get an unambiguous answer.
+- Which artifacts should exist at the end: finding, decision memo, fix plan, dashboard, test,
+  repro, runbook.
 
 ## Working Hypotheses
 
 | ID | Hypothesis | Why plausible | How to validate | Status |
 | --- | --- | --- | --- | --- |
-| `H1` | [Краткая гипотеза] | [Сигнал / наблюдение] | [Проверка / эксперимент] | `pending` |
+| `H1` | [short hypothesis] | [signal / observation] | [check / experiment] | `pending` |
 
 ## Evidence
 
 ### Canonical Sources
 
-- Основной источник истины: система записи, контракт, владелец процесса, первичный лог, база, API, документ.
-- Secondary sources: кеши, derived tables, локальные выгрузки, пользовательские репорты.
-- Что не считается reliable source of truth.
+- The primary source of truth: system of record, contract, process owner, primary log, database,
+  API, document.
+- Secondary sources: caches, derived tables, local exports, user reports.
+- What does not count as a reliable source of truth.
 
 ### Relevant Artifacts
 
 | Artifact | Type | Why it matters | Access / Link |
 | --- | --- | --- | --- |
-| `[artifact name]` | `code / log / metric / query / doc / trace / ticket` | [Причина] | [Ссылка] |
+| `[artifact name]` | `code / log / metric / query / doc / trace / ticket` | [reason] | [link] |
 
 ## Plan
 
 | Step | Question | Check | Expected Signal | Status |
 | --- | --- | --- | --- | --- |
-| `1. Baseline` | [Что нужно понять сначала] | [Команда / запрос / чтение кода] | [Что должно стать ясным] | `in_progress` |
-| `2. Evidence` | [Какую гипотезу проверяем] | [Эксперимент / воспроизведение / diff] | [Сигнал] | `pending` |
-| `3. Decision` | [Какой вывод нужно подтвердить] | [Финальная проверка] | [Решение / fix plan / no-action] | `pending` |
+| `1. Baseline` | [what to understand first] | [command / query / code read] | [what should become clear] | `in_progress` |
+| `2. Evidence` | [which hypothesis we test] | [experiment / reproduction / diff] | [signal] | `pending` |
+| `3. Decision` | [which conclusion to confirm] | [final check] | [decision / fix plan / no-action] | `pending` |
 
 ## Methods and Experiments
 
 | Method | Purpose | Expected signal | Status |
 | --- | --- | --- | --- |
-| `[reproduction / query / diff / trace / user interview / load test]` | [Зачем] | [Что должно измениться или подтвердиться] | `pending` |
+| `[reproduction / query / diff / trace / user interview / load test]` | [why] | [what should change or be confirmed] | `pending` |
 
 ## Findings
 
 | Source / Experiment | Scope | Result | Confidence | Notes |
 | --- | --- | --- | --- | --- |
-| `[artifact or method]` | `[subset / environment / timeframe]` | `[signal]` | `low / medium / high` | [Комментарий] |
+| `[artifact or method]` | `[subset / environment / timeframe]` | `[signal]` | `low / medium / high` | [comment] |
 
 ## Interpretation
 
-- Подтвержденные факты без интерпретации.
-- Как findings меняют понимание проблемы.
-- Какая гипотеза сейчас ведущая и почему.
-- Какие альтернативные объяснения уже отброшены.
+- Confirmed facts without interpretation.
+- How the findings change the understanding of the problem.
+- Which hypothesis is now leading, and why.
+- Which alternative explanations have already been ruled out.
 
 ## Next Actions
 
-- `Action:` [что делаем дальше]
-  `Owner:` [кто]
-  `Verification:` [как поймем, что действие сработало]
+- `Action:` [what we do next]
+  `Owner:` [who]
+  `Verification:` [how we will know the action worked]
 
 ## Status
 
-- Что уже подтверждено.
-- Что еще нужно для завершения расследования.
+- What is already confirmed.
+- What is still needed to close the investigation.

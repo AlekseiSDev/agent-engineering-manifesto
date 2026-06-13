@@ -40,3 +40,11 @@
   carries real permissions, but the PostToolUse/Stop verify-loop is delivered as a documented,
   opt-in scaffold. Reason: a docs repo should not silently change its own agent's stop behavior;
   the deterministic hook loop is still frontier even in mature harnesses.
+- **[2026-06-13] Documentation genres mapped to the flat vocabulary; `docs/anti-patterns.md` is the
+  one new genre**: routing lives in `docs/index.md` as a "what you're doing → what to read" table.
+  Reason: the existing `decisions.md` / `agent_rules/` / per-feature design split already covers
+  WHY/HOW/WHAT; only "recurring mistakes" lacked a home.
+- **[2026-06-13] Translate all repo prose to English**: P1 discovered Russian prose in five tracked
+  files (two design/impl records + three templates). Translated them as part of the uplift.
+  Reason: the English-only guardrail and "sanitized public" principle apply to every shipped
+  artifact, and Russian prose in a public starter-kit is a real wart.

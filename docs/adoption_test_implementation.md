@@ -14,50 +14,51 @@
 
 ## Core Transformation
 
-Добавить usage-based adoption test harness, который подготавливает фиктивный repo, prompt для subagent и checklist для ручной оценки результата.
+Add a usage-based adoption test harness that prepares a fake repo, a prompt for a subagent, and a
+checklist for manual evaluation of the result.
 
 ## Scope
 
-- In scope: fixtures, scenario files, evaluation checklist, runner script, краткая документация.
-- Out of scope: полная автоматизация внешнего subagent CLI и автоматический quality score.
+- In scope: fixtures, scenario files, evaluation checklist, runner script, brief documentation.
+- Out of scope: full automation of an external subagent CLI and an automatic quality score.
 
 ## Plan
 
 | Step | Change | Exit Criteria | TDD Hook | Harness Update |
 | --- | --- | --- | --- | --- |
-| `1` | Добавить design + implementation trail | В репозитории есть docs с объяснением структуры теста | Проверка наличия файлов | Новые docs для повторяемой работы |
-| `2` | Создать два fixture-репозитория и сценарии | Fixtures достаточно конкретны для adoption setup | Script может подготовить workspace по имени fixture | Fixture library |
-| `3` | Добавить checklist и runner script | Script готовит prompt, workspace и run artifacts | `bash -n` и dry run для обоих fixtures проходят | Reusable adoption harness |
-| `4` | Обновить README | README ссылается на adoption test как часть repo capabilities | Manual read-through | Better discoverability |
+| `1` | Add design + implementation trail | the repo has docs explaining the test structure | check the files exist | new docs for repeatable work |
+| `2` | Create two fixture repos and scenarios | fixtures are concrete enough for adoption setup | the script can prepare a workspace by fixture name | fixture library |
+| `3` | Add checklist and runner script | the script prepares prompt, workspace, and run artifacts | `bash -n` and dry runs pass for both fixtures | reusable adoption harness |
+| `4` | Update README | README references the adoption test as part of repo capabilities | manual read-through | better discoverability |
 
 ## Progress
 
 | Step | Status | Notes | Next |
 | --- | --- | --- | --- |
-| `1` | `done` | Design и implementation docs добавлены | — |
-| `2` | `done` | Добавлены fixtures `minimal-service` и `telegram-agent-bridge` | — |
-| `3` | `done` | Script + checklist готовы, dry run выполнен | — |
-| `4` | `done` | README обновлен | — |
+| `1` | `done` | design and implementation docs added | — |
+| `2` | `done` | added fixtures `minimal-service` and `telegram-agent-bridge` | — |
+| `3` | `done` | script + checklist ready, dry run done | — |
+| `4` | `done` | README updated | — |
 
 ## Verification
 
 | Check | Type | Result | Notes |
 | --- | --- | --- | --- |
-| `bash -n scripts/run-adoption-eval.sh` | `shell` | `passed` | Синтаксис runner script корректен |
-| `./scripts/run-adoption-eval.sh minimal-service --output-root /tmp/adoption-evals` | `smoke` | `passed` | Подготовлен run directory без внешнего runner |
-| `./scripts/run-adoption-eval.sh telegram-agent-bridge --output-root /tmp/adoption-evals` | `smoke` | `passed` | Подготовлен run directory без внешнего runner |
-| `./scripts/check-docs.sh` | `repo` | `passed` | Published docs проходят текущий guardrail |
+| `bash -n scripts/run-adoption-eval.sh` | `shell` | `passed` | runner script syntax is correct |
+| `./scripts/run-adoption-eval.sh minimal-service --output-root /tmp/adoption-evals` | `smoke` | `passed` | prepared a run directory with no external runner |
+| `./scripts/run-adoption-eval.sh telegram-agent-bridge --output-root /tmp/adoption-evals` | `smoke` | `passed` | prepared a run directory with no external runner |
+| `./scripts/check-docs.sh` | `repo` | `passed` | published docs pass the current guardrail |
 
 ## Deviations
 
-- Вместо жесткой интеграции с одним agent CLI добавлен generic runner hook через env vars и `--`.
+- Instead of hard integration with one agent CLI, a generic runner hook was added via env vars and `--`.
 
 ## Risks / Follow-Ups
 
-- Нужен реальный прогон fixtures через subagent и живой review output.
-- Возможно позже стоит добавить третий fixture под monorepo или frontend-heavy repo.
+- A real run of the fixtures through a subagent with live review output is still needed.
+- A third fixture for a monorepo or frontend-heavy repo may be worth adding later.
 
 ## Status
 
-- Первая итерация adoption-test harness готова.
-- Следующий meaningful step: использовать fixtures как acceptance test для manifesto.
+- The first iteration of the adoption-test harness is ready.
+- Next meaningful step: use the fixtures as an acceptance test for the manifesto.
